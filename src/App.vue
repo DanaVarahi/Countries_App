@@ -1,11 +1,13 @@
 <template>
-  <div>
+  <div class="container">
     <h1>Countries</h1>
-    <p>{{ countries }}</p>
+    <countires-list :countries='countries'></countires-list>
   </div>
 </template>
 
 <script>
+import CountriesList from './components/CountriesList.vue'
+
 export default {
   name: 'app',
   data(){  
@@ -20,12 +22,15 @@ export default {
     .then(res => res.json())
     .then(countries => this.countries = countries)
 
+  },
+  components: {
+    "countires-list": CountriesList,
   }
 }
 
 </script>
 
-<style>
+<style scoped>
 
 </style>
 
